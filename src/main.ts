@@ -3,7 +3,12 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+const pathname = window.location.pathname
+console.log(pathname)
+const appContainer = document.querySelector<HTMLDivElement>('#app')!
+if (pathname === '/') {
+
+  appContainer.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
@@ -22,3 +27,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+}
+else {  
+  const func = async()=>{  
+  const response =await fetch(pathname+'.md')
+  const text = await response.text();
+  console.log(text);
+  appContainer.innerHTML = `<h1>${text}</h1>`}
+    func()
+}
