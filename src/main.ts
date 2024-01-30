@@ -1,13 +1,13 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import typescriptLogo from "./typescript.svg";
+import viteLogo from "/vite.svg";
+import { setupCounter } from "./counter.ts";
+import { mdProcess } from "./mdProcess.ts";
 
-const pathname = window.location.pathname
-console.log(pathname)
-const appContainer = document.querySelector<HTMLDivElement>('#app')!
-if (pathname === '/') {
-
+const pathname = window.location.pathname;
+console.log(pathname);
+const appContainer = document.querySelector<HTMLDivElement>("#app")!;
+if (pathname === "/") {
   appContainer.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -24,16 +24,15 @@ if (pathname === '/') {
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
-}
-else {  
-  const func = async()=>{  
-  const response =await fetch(pathname+'.md')
-  const text = await response.text();
-  console.log(text);
-  appContainer.innerHTML = `<h1>${text}</h1>`}
-    func()
+  setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+} else {
+  (async () => {
+    const response = await fetch(pathname + ".md");
+    const text = await response.text();
+    console.log(text);
+    const htmlContent = await mdProcess(text);
+    appContainer.innerHTML = htmlContent;
+  })();
 }
