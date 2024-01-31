@@ -1,3 +1,8 @@
+import myPlugin from "./plugin/compileMdToHtml";
+
 export default {
-    assetsInclude: ['src/*.html'],
-  }
+  plugins: [myPlugin()],
+  build: {
+    target: "esnext",
+  },
+};
