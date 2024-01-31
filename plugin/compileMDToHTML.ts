@@ -3,7 +3,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
 import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax/browser";
+import rehypeMathjax from "rehype-mathjax/chtml";
 import rehypeStringify from "rehype-stringify";
 
 export default async function myPlugin() {
@@ -11,7 +11,12 @@ export default async function myPlugin() {
     .use(remarkParse)
     .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeMathjax)
+    .use(rehypeMathjax, {
+      chtml: {
+        fontURL:
+          "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2",
+      },
+    })
     .use(rehypeHighlight)
     .use(rehypeStringify);
 
@@ -26,7 +31,7 @@ export default async function myPlugin() {
         console.log(source.replace(/\\n/g, "\n"));
         const result = await processor.process(source.replace(/\\n/g, "\n"));
         const resultString = result.toString().replace(/\n/g, "\\n");
-        // console.log(result.toString())
+
         return {
           code: `export default \`${resultString}\``,
         };

@@ -1,8 +1,6 @@
 import "./style.css";
 import menuHtml from "./menu.html?raw";
 import "highlight.js/styles/github.css";
-// import "mathjax/es5/tex-chtml";
-// import "mathjax/es5/output/chtml/fonts/woff-v2"
 
 const response = await fetch("config.json");
 const config: { title: string; path: string }[] = await response.json();
@@ -23,11 +21,6 @@ if (pathname === "/") {
     menu.appendChild(li);
   });
 } else {
-  const { default: file } = await import("./posts/ss.md?raw");
-  console.log(file);
-  // const htmlContent = await mdProcess(file);
-  console.log(file);
-  appContainer.innerHTML = file;
-  // @ts-ignore
-  // await MathJax.typesetPromise();
+  const { default: postHTML } = await import("./posts/ss.md?raw");
+  appContainer.innerHTML = postHTML;
 }
