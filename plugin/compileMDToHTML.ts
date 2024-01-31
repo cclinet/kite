@@ -19,12 +19,16 @@ export default async function myPlugin() {
   return {
     name: "transform-file",
 
-    async transform(code, id) {
+    async transform(code: string, id: string) {
       if (fileRegex.test(id)) {
-        const source = code.slice('export default "'.length, -1)
-        const result = await processor.process(source);
+        const source = code.slice('export default "'.length, -1);
+
+        console.log(source.replace(/\\n/g, "\n"));
+        const result = await processor.process(source.replace(/\\n/g, "\n"));
+        const resultString = result.toString().replace(/\n/g, "\\n");
+        // console.log(result.toString())
         return {
-          code: `export default "${source}"`,
+          code: `export default \`${resultString}\``,
         };
       }
     },

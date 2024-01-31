@@ -1,4 +1,4 @@
-import myPlugin from "./plugin/compileMdToHtml";
+import myPlugin from "./plugin/compileMDToHTML";
 
 export default {
   plugins: [myPlugin()],
