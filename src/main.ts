@@ -1,6 +1,7 @@
 import "./style.css";
 import { mdProcess } from "./mdProcess.ts";
-import "mathjax/es5/tex-chtml";
+import menuHtml from './menu.html?raw'
+// import "mathjax/es5/tex-chtml";
 // import "mathjax/es5/output/chtml/fonts/woff-v2"
 
 const response = await fetch("config.json");
@@ -10,10 +11,7 @@ const pathname = window.location.pathname;
 console.log(pathname);
 const appContainer = document.querySelector<HTMLDivElement>("#app")!;
 if (pathname === "/") {
-  appContainer.innerHTML = `
-  <ul id="menu">
-  </ul>
-`;
+  appContainer.innerHTML = menuHtml;
   const menu = document.querySelector<HTMLUListElement>("#menu")!;
   console.log(config);
   config.map(({ title, path }) => {
@@ -25,11 +23,12 @@ if (pathname === "/") {
     menu.appendChild(li);
   });
 } else {
+
   const response = await fetch(pathname + ".md");
   const text = await response.text();
   console.log(text);
   const htmlContent = await mdProcess(text);
   appContainer.innerHTML = htmlContent;
-  //@ts-ignore
-  await MathJax.typesetPromise();
+  // @ts-ignore
+  // await MathJax.typesetPromise();
 }
