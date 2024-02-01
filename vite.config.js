@@ -1,7 +1,7 @@
-import myPlugin from "./plugin/compileMDToHTML";
+import compileMDToHTML from "./plugin/compileMDToHTML";
 
 export default {
-  plugins: [myPlugin()],
+  plugins: [compileMDToHTML()],
   build: {
     target: "esnext",
   },
