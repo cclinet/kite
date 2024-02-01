@@ -1,6 +1,6 @@
 # title
 
-## third title
+## second title
 
 ```python
 import os
@@ -11,4 +11,4 @@ $$
 \lim_{x \to 2} f(x) = 5
 $$
 
-下面是一行行内公式$y^e = x$
+下面是一行行内公式 $y^e = x$

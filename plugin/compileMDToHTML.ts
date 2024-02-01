@@ -6,7 +6,7 @@ import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax/browser";
 import rehypeStringify from "rehype-stringify";
 
-export default async function myPlugin() {
+export default async function compileMDToHTML() {
   const processor = unified()
     .use(remarkParse)
     .use(remarkMath)
