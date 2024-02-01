@@ -1,6 +1,5 @@
 import "./style.css";
 import menuHtml from "./menu.html?raw";
-import "highlight.js/styles/github.css";
 
 const response = await fetch("config.json");
 const config: { title: string; path: string }[] = await response.json();
@@ -23,4 +22,12 @@ if (pathname === "/") {
 } else {
   const { default: postHTML } = await import("./posts/ss.md?raw");
   appContainer.innerHTML = postHTML;
+  if (
+    document.querySelector<HTMLScriptElement>("#MathJax-script") &&
+    //@ts-ignore
+    typeof MathJax.typesetPromise === "function"
+  ) {
+    //@ts-ignore
+    await MathJax.typesetPromise();
+  }
 }
