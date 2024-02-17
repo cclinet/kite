@@ -6,19 +6,15 @@ import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax/browser";
 import rehypeStringify from "rehype-stringify";
 
-export default async function compileMDToHTML() {
+export default async function unifiedPlugin() {
   const processor = unified()
     .use(remarkParse)
     .use(remarkMath)
     .use(remarkRehype)
     .use(rehypeMathjax, {
       tex: {
-        inlineMath: [
-          ["$", "$"],
-        ],
-        displayMath: [
-          ["$$", "$$"],
-        ],
+        inlineMath: [["$", "$"]],
+        displayMath: [["$$", "$$"]],
       },
     })
     .use(rehypeHighlight)
