@@ -1,6 +1,7 @@
 import "./style.css";
-import menuHTML from "./menu.html?raw";
+
 import notFoundHTML from "./404.html?raw";
+import IndexMenu from "./components";
 
 const response = await fetch("config.json");
 const config: { title: string; path: string }[] = await response.json();
@@ -10,18 +11,9 @@ const pathname = window.location.pathname.substring(1);
 const appContainer = document.querySelector<HTMLDivElement>("#app")!;
 
 if (pathname === "") {
-  appContainer.innerHTML = menuHTML;
-  const menu = document.querySelector<HTMLUListElement>("#menu")!;
-  config.map(({ title, path }) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.appendChild(document.createTextNode(title));
-    a.href = path;
-    li.appendChild(a);
-    menu.appendChild(li);
-  });
+appContainer.appendChild(IndexMenu(config))
 } else if (posts.has(pathname)) {
-  const { default: postHTML } = await import(`./posts/${pathname}.md?raw`);
+  const { default: postHTML } = await import(`../posts/${pathname}.md?raw`);
   appContainer.innerHTML = postHTML;
   if (
     document.querySelector<HTMLScriptElement>("#MathJax-script") &&
