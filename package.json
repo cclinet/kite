@@ -16,11 +16,12 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
     "astro": "^4.5.9",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10"
   }
 }
