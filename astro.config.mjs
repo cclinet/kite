@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://cclin.org",
+  site: "https://blog.cclin.org",
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
     remarkPlugins: [remarkMath],
