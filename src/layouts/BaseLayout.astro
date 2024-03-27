@@ -10,8 +10,14 @@ const { description } = Astro.props || "";
 <html lang="zh">
   <head>
     <BaseHead title={title} description={description} />
+    <style>
+      body {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    </style>
   </head>
-  <body class="mx-2 md:mx-auto">
+  <body>
     <Header />
     <slot />
     <Footer />

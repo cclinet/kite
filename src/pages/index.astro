@@ -13,13 +13,13 @@ const description = SITE_DESCRIPTION;
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="mx-auto max-w-2xl">
-    <section class="mt-32">
-      <ul class="flex flex-col space-y-4">
+  <main>
+    <section>
+      <ul>
         {
           posts.map((post) => (
             <li>
-              <a href={`/${post.slug}/`} class="flex w-full justify-between">
+              <a href={`/${post.slug}/`}>
                 <h4 class="title">{post.data.title}</h4>
                 <p class="date">
                   <FormattedDate date={post.data.pubDate} />
@@ -32,3 +32,24 @@ const description = SITE_DESCRIPTION;
     </section>
   </main>
 </BaseLayout>
+<style>
+  main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+  }
+  section {
+    margin-top: 8rem;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  li a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+</style>

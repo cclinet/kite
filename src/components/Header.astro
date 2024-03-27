@@ -1,11 +1,20 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
+import { Image } from "astro:assets";
+
+// import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-  <nav class="flex items-center justify-between">
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+  <nav>
+    <a href="/"
+      ><Image
+        src="/favicon.svg"
+        alt="logo for cclin's blog"
+        width="40"
+        height="40"
+      />
+    </a>
     <div>
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
@@ -13,3 +22,10 @@ import { SITE_TITLE } from "../consts";
     <div></div>
   </nav>
 </header>
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

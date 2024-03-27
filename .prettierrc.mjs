@@ -10,7 +10,6 @@ export default {
   importOrderSortSpecifiers: true,
   plugins: [
     "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss",
     "@trivago/prettier-plugin-sort-imports",
   ],
 };
