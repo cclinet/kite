@@ -1,0 +1,13 @@
+a {
+  text-decoration: none;
+}
+a:link,
+a:visited {
+  color: var(--primary-text-color);
+}
+:root {
+  --primary-bg-color: white;
+  --primary-text-color: rgb(47, 41, 41);
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+}

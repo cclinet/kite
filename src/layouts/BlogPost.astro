@@ -10,11 +10,9 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
 <BaseLatout title={title} description={description}>
   <main>
-    <article
-      class="prose mx-auto lg:prose-xl dark:prose-invert prose-h1:text-3xl"
-    >
-      <h1 class="text-center">{title}</h1>
-      <div class="flex flex-row justify-between text-sm">
+    <article>
+      <h1 id="title">{title}</h1>
+      <div id="date-group">
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
@@ -25,8 +23,33 @@ const { title, description, pubDate, updatedDate } = Astro.props;
         }
       </div>
       <hr />
-
-      <slot />
+      <div id="content">
+        <slot />
+      </div>
     </article>
   </main>
 </BaseLatout>
+<style>
+  #title {
+    text-align: center;
+  }
+  #date-group {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+  }
+  #content {
+    h2 {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+    #footnote-label{
+      display: none;
+    }
+    .footnotes {
+      font-size: 0.875rem;
+      font-weight: 200;
+    }
+  }
+</style>
