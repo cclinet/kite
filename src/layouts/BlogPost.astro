@@ -30,6 +30,14 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   </main>
 </BaseLatout>
 <style>
+  main {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    @media (width < 768px) {
+      letter-spacing: 0.025em;
+    }
+  }
   #title {
     text-align: center;
   }
@@ -40,16 +48,22 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     font-size: 0.875rem;
   }
   #content {
+    a {
+      text-decoration: underline;
+    }
     h2 {
       font-weight: 500;
       font-size: 1.4rem;
     }
-    #footnote-label{
+    #footnote-label {
       display: none;
     }
     .footnotes {
       font-size: 0.875rem;
-      font-weight: 200;
+      color: #616161;
+    }
+    sup a {
+      color: #616161;
     }
   }
 </style>
