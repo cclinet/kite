@@ -11,5 +11,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [[rehypeKatex, { output: "mathml" }]],
+    shikiConfig: {
+      themes: { 
+        light: 'github-light',
+        dark: 'github-dark',
+      }
+    }
   },
 });
