@@ -16,7 +16,7 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.2",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "astro": "^4.6.1",
+    "astro": "^4.6.3",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "rehype-katex": "^7.0.0",
