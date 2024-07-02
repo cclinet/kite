@@ -12,3 +12,7 @@ a:link,
 a:visited {
   color: var(--primary-text-color);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
