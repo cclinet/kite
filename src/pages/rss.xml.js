@@ -13,7 +13,7 @@ export async function GET(context) {
       .filter((post) => !post.data.draft)
       .map((post) => ({
         ...post.data,
-        link: `/blog/${post.slug}/`,
+        link: `/${post.slug}/`,
       })),
   });
 }
