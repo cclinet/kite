@@ -133,3 +133,4 @@ inline Status& Status::operator=(Status&& rhs) noexcept {
 
 #endif  // STORAGE_LEVELDB_INCLUDE_STATUS_H_
 ```
+可以看到status有6种状态。
