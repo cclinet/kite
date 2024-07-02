@@ -13,6 +13,7 @@ Sigmoid(x) = \sigma(x) = \frac{1}{1+e^{-x}}
 $$
 
 导数
+
 $$
 \begin{aligned}
 \sigma^{'}(x) &= -\frac{1}{(1+e^{-x})^2}*(-e^{-x}) \\
@@ -29,6 +30,8 @@ ReLU(x) = (x)^ += max(0,x)
 $$
 
 导数
+
 $$
+
 
 $$

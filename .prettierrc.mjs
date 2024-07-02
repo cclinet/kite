@@ -8,8 +8,5 @@ export default {
   importOrder: ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
-  plugins: [
-    "prettier-plugin-astro",
-    "@trivago/prettier-plugin-sort-imports",
-  ],
+  plugins: ["prettier-plugin-astro", "@trivago/prettier-plugin-sort-imports"],
 };

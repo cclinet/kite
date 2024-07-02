@@ -12,10 +12,10 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [[rehypeKatex, { output: "mathml" }]],
     shikiConfig: {
-      themes: { 
-        light: 'github-light',
-        dark: 'github-dark',
-      }
-    }
-  }
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
+  },
 });
